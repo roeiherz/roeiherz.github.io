@@ -127,3 +127,5 @@ dmypy.json
 .images (copy)/
 .gitignore
 .idea/
+/.idea/misc.xml
+/.idea/modules.xml
