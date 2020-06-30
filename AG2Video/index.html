@@ -15,7 +15,7 @@
         font-size: 18px;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
+        width: 80%;
     }
 
     h1 {
@@ -120,6 +120,8 @@
     <span style="font-size:36px">Compositional Video Synthesis with Action Graphs</span>
     <br><br>
 
+    <span style="font-size:24px">Preprint. Under review.</span>
+    <br><br><br>
     <table align=center>
         <tr>
             <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar*</a><sup>1</sup></span> &nbsp;
@@ -132,6 +134,9 @@
             <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
         </tr>
     </table>
+
+    <span style="font-size:18px"><sup>*</sup>Equally contributed</span>
+    <br><br>
 
     <table align=center>
         <tr>
@@ -147,7 +152,7 @@
     <br>
 
 
-    <span style="font-size:24px">Preprint. Under review.</span>
+<!--    <span style="font-size:24px">Preprint. Under review.</span>-->
 
     <table align=center>
         <tr>
@@ -176,7 +181,7 @@
     </table>
 
 </center>
-<left>    <span style="font-size:18px"><sup>*</sup>Equally contributed</span> </left>
+<!--<left>    <span style="font-size:18px"><sup>*</sup>Equally contributed</span> </left>-->
 
 <br><br><br>
 <hr>
@@ -194,7 +199,7 @@ AG2Vid is evaluated on the CATER and Something-Something datasets and outperform
 Finally, we show how Action Graphs can be used for generating novel compositions of unseen actions.
 
 <br><br>
-<center><img src="data/figures/action_graph_to_vid.gif" align="middle"></center>
+<center><img src="data/videos/ag2vid_task.gif" align="middle"></center>
 <br>
 <hr>
 <!--        Contribution Section-->
@@ -228,7 +233,7 @@ Our contributions are thus: <br>
 <p>
     Classic work in cognitive-psychology argues that actions (and more generally events) are bounded regions of space-time and are composed of atomic action units (Quin, 1985; Zacks and Tversky, 2001). In a video, multiple actions can be applied to one or more objects, changing the relationships between the object and the subject of an action over time. Based on these observations, we introduce a formalism we call an <b>Action Graph</b>, a graph where nodes are objects, and the edges are actions specified by their start and end time.
 </p>
-<center><img src="data/figures/action_graph_to_vid.gif" align="middle"></center>
+<center><img src="data/videos/ag_vd.gif" align="middle"></center>
 <p>
     <b>Action Graph</b> is a natural and convenient structure representing the dynamics of actions between objects over time. To execute an Action Graph, each action (and its corresponding edge) is assigned with a "clock" which marks the progress of the action in a particular timestep.
 
