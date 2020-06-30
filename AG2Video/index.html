@@ -5,355 +5,347 @@
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 <style type="text/css">
-  body {
-    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight:300;
-    font-size:18px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1100px;
-  }
+    table {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    body {
+        font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 
-  h1 {
-    font-weight:300;
-  }
+    h1 {
+        font-weight: 300;
+    }
 
-  .disclaimerbox {
-    background-color: #eee;
-    border: 1px solid #eeeeee;
-    border-radius: 10px ;
-    -moz-border-radius: 10px ;
-    -webkit-border-radius: 10px ;
-    padding: 20px;
-  }
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        padding: 20px;
+    }
 
-  video.header-vid {
-    height: 140px;
-    border: 1px solid black;
-    border-radius: 10px ;
-    -moz-border-radius: 10px ;
-    -webkit-border-radius: 10px ;
-  }
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
 
-  img.header-img {
-    height: 140px;
-    border: 1px solid black;
-    border-radius: 10px ;
-    -moz-border-radius: 10px ;
-    -webkit-border-radius: 10px ;
-  }
+    img {
+        width: 100%
+    }
 
-  img.rounded {
-    border: 1px solid #eeeeee;
-    border-radius: 10px ;
-    -moz-border-radius: 10px ;
-    -webkit-border-radius: 10px ;
-  }
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
 
-  a:link,a:visited
-  {
-    color: #1367a7;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #208799;
-  }
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
 
-  td.dl-link {
-    height: 160px;
-    text-align: center;
-    font-size: 22px;
-  }
+    a:link, a:visited {
+        color: #1367a7;
+        text-decoration: none;
+    }
 
-  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-    box-shadow:
-            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-            5px 5px 0 0px #fff, /* The second layer */
-            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-            10px 10px 0 0px #fff, /* The third layer */
-            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-            15px 15px 0 0px #fff, /* The fourth layer */
-            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-            20px 20px 0 0px #fff, /* The fifth layer */
-            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-            25px 25px 0 0px #fff, /* The fifth layer */
-            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
-    margin-left: 10px;
-    margin-right: 45px;
-  }
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */ 15px 15px 0 0px #fff, /* The fourth layer */ 15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */ 20px 20px 0 0px #fff, /* The fifth layer */ 20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */ 25px 25px 0 0px #fff, /* The fifth layer */ 25px 25px 1px 1px rgba(0, 0, 0, 0.35); /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
 
 
-  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-    box-shadow:
-            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-            5px 5px 0 0px #fff, /* The second layer */
-            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-            10px 10px 0 0px #fff, /* The third layer */
-            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 30px;
-    margin-bottom: 5px;
-  }
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35); /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
 
-  .vert-cent {
-    position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-  }
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-  hr
-  {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  }
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
 
 
-
-  #authors td {
-    padding-bottom:5px;
-    padding-top:30px;
-  }
+    #authors td {
+        padding-bottom: 5px;
+        padding-top: 30px;
+    }
 </style>
 
 
-<html>
-    <head>
+<head>
 
     <title>AG2Video</title>
-    <meta property="og:title" content="Compositional Video Synthesis with Action Graphs" />
-    <!--   <meta property="og:image" content="https:" />
-    -->  <meta property="og:image:width" content="3000" />
-    <meta property="og:image:height" content="800" />
-    </head>
+    <meta property="og:title" content="Compositional Video Synthesis with Action Graphs"/>
+</head>
 
-    <body>
-        <br>
-        <center>
-            <span style="font-size:36px">Compositional Video Synthesis with Action Graphs</span>
-        <br><br>
-        <span style="font-size:24px">Preprint. Under review.</span>
-        <br><br>
-        <table align=center width=700px>
-            <tr>
-            <td align=center width=220px>
-            <center>
-            <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar*</a><sup>1</sup></span>
-            </center>
-            </td>
+<body>
+<br>
+<center>
+    <span style="font-size:36px">Compositional Video Synthesis with Action Graphs</span>
+    <br><br>
 
-            <td align=center width=100px>
-            <center>
+    <table align=center>
+        <tr>
+            <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar*</a><sup>1</sup></span> &nbsp;
             <span style="font-size:24px"><a href="https://roeiherz.github.io/">Roei Herzig*</a><sup>1</sup></span>
-            </center>
-            </td>
-            <td align=center width=100px></td>
-        </table>
-        <br>
-        <table align=center width=1000px>
-            <td align=center width=100px>
-                <center>
-                    <span style="font-size:24px"><a href="http://www.cs.cmu.edu/~xiaolonw/">Xiaolong Wang</a><sup>2,3</sup></span>
-                </center>
-            </td>
-            <td align=center width=100px>
-                <center>
-                    <span style="font-size:24px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>4</sup></span>
-                </center>
-            </td>
-            <td align=center width=100px>
-                <center>
-                    <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span>
-                </center>
-            </td>
-            <td align=center width=100px>
-                <center>
-                    <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span>
-                </center>
-            </td>
-        </table>
+        </tr><br>
+        <tr>
+            <span style="font-size:24px"><a href="http://www.cs.cmu.edu/~xiaolonw/">Xiaolong Wang</a><sup>2,3</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>4</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
+        </tr>
+    </table>
 
-        <br>
-        <span style="font-size:18px"><sup>*</sup>Equal contribution</span>
-        <br><br>
-        <table align=center width=700px>
-            <tr>
-                <td align=center width=100px>
+    <table align=center>
+        <tr>
+            <td align=center>
                 <center>
                     <span style="font-size:20px">
-                        <sup>1</sup>Tel-Aviv University<br/><sup>2</sup>UC Berkeley<br/><sup>3</sup>UC San Diego<br/><sup>4</sup>Bar-Ilan University, NVIDIA Research
+                        <sup>1</sup>Tel-Aviv University &nbsp;<sup>2</sup>UC Berkeley &nbsp;<sup>3</sup>UC San Diego &nbsp;<sup>4</sup>Bar-Ilan University, NVIDIA Research
                     </span>
                 </center>
-                </td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+    </table>
+    <br>
 
-        <br> <br> <br>
-        <table align=center width=600px>
-            <tr>
-                <td align=center width=150px>
-                    <center>
-                        <span style="font-size:24px"><a href="https://arxiv.org/abs/2006.15327"> [Paper]</a></span>
-                    </center>
-                </td>
-                <td align=center width=150px>
-                    <center>
+
+    <span style="font-size:24px">Preprint. Under review.</span>
+
+    <table align=center>
+        <tr>
+            <td align=center>
+                <center>
+                    <span style="font-size:24px"><a href="https://arxiv.org/abs/2006.15327"> [Paper]</a></span>
+                </center>
+            </td>
+            <td align=center>
+                <center>
                         <span style="font-size:24px"><a href='https://www.dropbox.com/s/yh110evfjw3bwkf/ActionGraph.pdf?dl=0'> [Slides]</a></span>
-                    </center>
-                </td>
-                <td align=center width=150px>
-                    <center>
+                </center>
+            </td>
+
+            <td align=center>
+                <center>
                         <span style="font-size:24px"><a href='https://github.com/roeiherz/AG2Video'> [GitHub]</a></span>
-                    </center>
-                </td>
-                <td align=center width=150px>
-                    <center>
+                </center>
+            </td>
+            <td align=center>
+                <center>
                         <span style="font-size:24px"><a href='data/2020ActionGraphs.txt'> [Bibtex]</a></span>
-                    </center>
-                </td>
-            </tr>
-        </table>
+                </center>
+            </td>
+        </tr>
+    </table>
 
-        </center>
-        <br><br><br>
-        <hr>
-        <table align=center width=850px> <center><h1>Abstract</h1></center> </table>
+</center>
+<left>    <span style="font-size:18px"><sup>*</sup>Equally contributed</span> </left>
 
-        Videos of actions are complex spatio-temporal signals, containing rich compositional structures.
-        Current generative models are limited in their ability to generate examples of object configurations outside the range they were trained on.
-        Towards this end, we introduce a generative model (AG2Vid) based on Action Graphs, a natural and convenient structure that represents the dynamics of actions between objects over time.
-        Our AG2Vid model disentangles appearance and position features, allowing for more accurate generation.
-        AG2Vid is evaluated on the CATER and Something-Something datasets and outperforms other baselines.
-        Finally, we show how Action Graphs can be used for generating novel compositions of unseen actions.
+<br><br><br>
+<hr>
+<table align=center>
+    <center><h1>Abstract</h1></center>
+</table>
 
-        <br><br>
-        <center> <img src="data/figures/teaser.png" width=789 align="middle"> </center>
-        <br>
-        <hr>
+Videos of actions are complex spatio-temporal signals, containing rich compositional structures.
+Current generative models are limited in their ability to generate examples of object configurations outside the range
+they were trained on.
+Towards this end, we introduce a generative model (AG2Vid) based on Action Graphs, a natural and convenient structure
+that represents the dynamics of actions between objects over time.
+Our AG2Vid model disentangles appearance and position features, allowing for more accurate generation.
+AG2Vid is evaluated on the CATER and Something-Something datasets and outperforms other baselines.
+Finally, we show how Action Graphs can be used for generating novel compositions of unseen actions.
 
-        <!--        Action Graphs Section-->
-        <table align=center width=850px> <center><h1>Action Graphs</h1></center> </table>
-        We introduce the formalism of <b>Action Graphs</b>, a natural and convenient structure representing
-        the dynamics of actions between objects over time
+<br><br>
+<center><img src="data/figures/action_graph_to_vid.gif" align="middle"></center>
+<br>
+<hr>
+<!--        Contribution Section-->
+<table align=center>
+    <center><h1>Contributions</h1></center>
+</table>
+Our contributions are thus: <br>
+1) Introducing the formalism of <a href="#action_graphs">Action Graphs</a> (AG). <br>
+2) Proposing a new video synthesis task (AG2Vid) and presenting a new <a href="#model">model</a> for this task. <br>
+3) Demonstrating an approach for constructing  <a href="#new_actions">new actions</a> out of existing atomic actions.
+<br><br>
+<!--<center><img src="data/videos/contributions.gif" width=789 align="middle"></center>-->
+<!--<br>-->
+<hr>
+<br>
+
+<!--        Motivation Section-->
+<!--<table align=center>-->
+<!--    <center><h1>Motivation</h1></center>-->
+<!--</table>-->
+<!--<br><br>-->
+<!--<center><img src="data/videos/motivation.gif" width=789 align="middle"></center>-->
+<!--<br>-->
+<!--<hr>-->
+<!--<br>-->
+
+<!--        Action Graphs Section-->
+<table align=center>
+    <center><h1 id="action_graphs">Action Graphs</h1></center>
+</table>
+<p>
+    Classic work in cognitive-psychology argues that actions (and more generally events) are bounded regions of space-time and are composed of atomic action units (Quin, 1985; Zacks and Tversky, 2001). In a video, multiple actions can be applied to one or more objects, changing the relationships between the object and the subject of an action over time. Based on these observations, we introduce a formalism we call an <b>Action Graph</b>, a graph where nodes are objects, and the edges are actions specified by their start and end time.
+</p>
+<center><img src="data/figures/action_graph_to_vid.gif" align="middle"></center>
+<p>
+    <b>Action Graph</b> is a natural and convenient structure representing the dynamics of actions between objects over time. To execute an Action Graph, each action (and its corresponding edge) is assigned with a "clock" which marks the progress of the action in a particular timestep.
+
+
+</p>
 <!--        , and propose a new video synthesis task from action graphs. We present a novel action-graph-to-video (AG2Vid) model for this task-->
-        and show we can synthesize goal-oriented videos on the CATER and Something Something datasets.
-        <br><br>
-        <center> <img src="data/videos/teaser.gif" width=789 align="middle"> </center>
-        <br>
-        <hr>
-        <br>
-
-        <!--        Motivation Section-->
-        <table align=center width=850px> <center><h1>Motivation</h1></center> </table>
-        Classic work in cognitive-psychology argues that actions (and more generally events) are bounded regions of space-time
-        and are composed of atomic action units (Quin, 1985; Zacks and Tversky, 2001).
-        In a video, multiple actions can be applied to one or more objects, changing the relationships between the object and
-        the subject of an action over time.
-        Based on these observations, we introduce a formalism we call an Action Graph, a graph where nodes are objects,
-        and the edges are actions specified by their start and end time.
-        <br><br>
-        <center> <img src="data/videos/motivation.gif" width=789 align="middle"> </center>
-        <br>
-        <hr>
-        <br>
-
-        <!--        Contribution Section-->
-        <table align=center width=850px> <center><h1>Contributions</h1></center> </table>
-        Our contributions are thus:
-        1) Introducing the formalism of <b>Action Graphs</b> (AG).
-        2) Proposing a new video synthesis task (AG2Vid) and presenting a new model for this task.
-        3) Demonstrating an approach for constructing new actions out of existing atomic actions.
-        <br><br>
-        <center> <img src="data/videos/contributions.gif" width=789 align="middle"> </center>
-        <br>
-        <hr>
-        <br>
-
-        <!--        Model Section-->
-        <table align=center width=850px> <center><h1>Model</h1></center> </table>
-        <MATH>
-        We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.
-        Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.
-        </MATH>
-        <br><br>
-<!--        <center> <img src="data/videos/model.gif" width=789 align="middle"> </center>-->
-        <center> <img src="data/figures/model.png" width=789 align="middle"> </center>
-        <br>
-        <hr>
-        <br>
+<!--and show we can synthesize goal-oriented videos on the CATER and Something Something datasets.-->
+<br><br>
+<center><img src="data/figures/clocked_edges.png" width=789 align="middle"></center>
+<br>
+<hr>
+<br>
 
 
-        <!--        Results Section-->
-        <table align=center width=850px> <center><h1>Results</h1></center> </table>
-        <table>
-            <tr>
-               <center>
-               <img src="data/videos/actions_cater.gif" width="800px" /></center>
-               <p>Qualitative examples for the generation of actions on the CATER dataset.
-                   We use the AG2Vid model to generate videos of four standard actions
-                   and two composed unseen actions (<i>Swap</i> and <i>Huddle</i>).</p>
-            </tr>
-        </table>
-        <br>
-        <table>
-            <tr>
-               <center>
-                <img src="data/videos/actions_smth.gif" width="800px"/></center>
-                <p>Qualitative examples for the generation of actions on the Something Something dataset.
-                    We use our AG2Vid model to generate videos of eight standard actions
-                    and two composed unseen actions (<i>Right Up</i> and <i>Down Left</i>).</p>
-            </tr>
-        </table>
-        <br>
-        <table>
-            <tr>
-               <center>
-                <img src="data/videos/compositional_smth_cater.gif" width="800px"/></center>
-                <p>Compositional action synthesis in Something-Something and CATER.</p>
-            </tr>
-        </table>
-        <br>
-        <table>
-            <tr>
-               <center>
-                <img src="data/videos/compare_results.gif" width="800px"/></center>
-                <p>Comparison of baselines methods. The top two rows are based on CATER videos,
-                    while the bottom two rows are based on Something Something videos.
-                    The OURS + FLOW model refers to our model without the S generator network (flows prediction only).</p>
-            </tr>
-        </table>
+<!--        Model Section-->
+<table align=center>
+    <center><h1 id="model">Model</h1></center>
+</table>
+<MATH>
+We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.
+Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.
+</MATH>
+<center><img src="data/figures/model.png" width=789 align="middle"></center>
+<hr>
 
-        <br> <br>
-        <hr>
-        <table align=center width=1000px> <center><h1>Paper</h1></center>
-            <tr>
-            <td><a href="https://arxiv.org/pdf/1903.07593.pdf"><img class="layered-paper-big" style="height:175px" src="data/figures/paper.png"/></a></td>
-            <td><a href="https://arxiv.org/pdf/1903.07593.pdf"></a></td>
-            <td>
+
+<!--        Results Section-->
+<table align=center width=850px>
+    <center><h1>Results</h1></center>
+</table>
+
+<table align=center width=850px>
+    <center><h1 id="new_actions">Composing new unseen actions</h1></center>
+</table>
+<p>Based on the existing actions, we can create new actions in test time. For example, we can use the actions "Slide" and "Pick Place" to create the new action "Swap". </p>
+<table>
+    <tr>
+        <center>
+            <img src="data/videos/compositional_smth_cater.gif"/></center>
+        <p>Compositional action synthesis in Something-Something and CATER.</p>
+    </tr>
+</table>
+
+<table align=center width=850px>
+    <center><h1>Qualitative examples</h1></center>
+</table>
+<table>
+    <tr>
+        <center>
+            <img src="data/videos/actions_cater.gif"/></center>
+        <p>Qualitative examples for the generation of actions on the CATER dataset.
+            We use the AG2Vid model to generate videos of four standard actions
+            and two composed unseen actions (<i>Swap</i> and <i>Huddle</i>).</p>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <center>
+            <img src="data/videos/actions_smth.gif"/></center>
+        <p>Qualitative examples for the generation of actions on the Something Something dataset.
+            We use our AG2Vid model to generate videos of eight standard actions
+            and two composed unseen actions (<i>Right Up</i> and <i>Down Left</i>).</p>
+    </tr>
+</table>
+
+<table align=center width=850px>
+    <center><h1>Comparison to existing methods</h1></center>
+</table>
+
+<table>
+    <tr>
+        <center>
+            <img src="data/videos/compare_results.gif"/></center>
+        <p>Comparison of baselines methods. The top two rows are based on CATER videos,
+            while the bottom two rows are based on Something Something videos.
+            The OURS + FLOW model refers to our model without the S generator network (flows prediction only).</p>
+    </tr>
+</table>
+
+<hr>
+
+<table align=center>
+    <center><h1>Paper</h1></center>
+    <tr>
+        <td><a href="https://arxiv.org/pdf/1903.07593.pdf"><img class="layered-paper-big" style="height:175px; width: 150px; margin-bottom: 50px"
+                                                                src="data/figures/paper.png"/></a></td>
+        <td><a href="https://arxiv.org/pdf/1903.07593.pdf"></a></td>
+        <td>
                 <span style="font-size:14pt"> Amir Bar*, Roei Herzig*, Xiaolong Wang, Gal Chechik, Trevor Darrell, Amir Globerson<br>
               <i>Compositional Video Synthesis with Action Graphs</i><br>
             Arxiv<br>
             Hosted on <a href="https://arxiv.org/abs/1912.09930">arXiv</a>
                 </span>
             <br>
-                <span style="font-size:18px"><sup>*</sup>Equal contribution</span>
-            </td>
-            <span style="font-size:4pt"><a href="https://arxiv.org/pdf/1903.07593.pdf"><br></a></span>
-            </tr>
-        </table>
-
-        <br>
-        <hr>
-        <table align=center width=1100px> <tr> <td width=400px> <left> <center><h1>Acknowledgements</h1></center>
-
-        This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell's group was supported in part by DoD, NSF, BAIR, and BDD. We would also like to thank Anna Rohrbach for valuable feedback and comments on drafts, and Lior Bracha for running the MTurk experiments.
-        </left>
+            <span style="font-size:18px"><sup>*</sup>Equal contribution</span>
         </td>
-        </tr>
-        </table>
+        <span style="font-size:4pt"><a href="https://arxiv.org/pdf/1903.07593.pdf"><br></a></span>
+    </tr>
+</table>
 
-        <br><br>
+<hr>
+<table align=center style="margin-bottom: 50px">
+    <tr>
+        <td>
+            <left>
+                <center><h1>Acknowledgements</h1></center>
+
+                This project has received funding from the European Research Council (ERC) under the European Unions
+                Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell's group was
+                supported in part by DoD, NSF, BAIR, and BDD. We would also like to thank Anna Rohrbach for valuable
+                feedback and comments on drafts, and Lior Bracha for running the MTurk experiments.
+            </left>
+        </td>
+    </tr>
+</table>
+
 
 </body>
 </html>
