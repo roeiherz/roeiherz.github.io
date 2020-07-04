@@ -161,11 +161,11 @@
                     <span style="font-size:24px"><a href="https://arxiv.org/abs/1912.07414"> [Paper]</a></span>
                 </center>
             </td>
-            <td align=center>
-                <center>
-                        <span style="font-size:24px"><a href='https://www.dropbox.com/s/yh110evfjw3bwkf/ActionGraph.pdf?dl=0'> [Slides]</a></span>
-                </center>
-            </td>
+<!--            <td align=center>-->
+<!--                <center>-->
+<!--                        <span style="font-size:24px"><a href='https://www.dropbox.com/s/yh110evfjw3bwkf/ActionGraph.pdf?dl=0'> [Slides]</a></span>-->
+<!--                </center>-->
+<!--            </td>-->
 
             <td align=center>
                 <center>
@@ -194,54 +194,36 @@ Previous approaches showed that scenes with few entities could be controlled usi
 In this work, we show the limitations of current methods are their inability to capture semantic equivalence in graphs, and robustness to graph size and adversarial attacks. We present a novel model to address these by employing a canonical graph representation, which ensures our model robustness to those.
 We show improved performance of the model on three different benchmarks: Visual Genome, COCO, and CLEVR.
 
-<br>
+<br><br><br>
 <center><img src="data/figures/teaser.png" align="middle"></center>
 <br>
 <hr>
+
 <!--        Contribution Section-->
 <table align=center>
     <center><h1>Contributions</h1></center>
 </table>
 Our contributions are thus: <br>
-1) Introducing the formalism of <a href="#action_graphs">Action Graphs</a> (AG). <br>
-2) Proposing a new video synthesis task (AG2Vid) and presenting a new <a href="#model">model</a> for this task. <br>
-3) Demonstrating an approach for constructing  <a href="#new_actions">new actions</a> out of existing atomic actions.
+1) We propose a model that uses canonical representations of SGs, thus obtaining <b>stronger invariance properties</b>, and <b>robustness to graph size and adversarial attacks </b> than existing methods.
+<br>
+2) We show how to learn the canonicalization process from data.
+<br>
+3) We use our canonical representations within an SG-to-image model and demonstrate our approach results in an improved generation on Visual Genome, COCO, and CLEVR, compared to the state-of-the-art baselines.
 <br><br>
 <!--<center><img src="data/videos/contributions.gif" width=789 align="middle"></center>-->
 <!--<br>-->
 <hr>
 <br>
 
-<!--        Motivation Section-->
-<!--<table align=center>-->
-<!--    <center><h1>Motivation</h1></center>-->
-<!--</table>-->
-<!--<br><br>-->
-<!--<center><img src="data/videos/motivation.gif" width=789 align="middle"></center>-->
-<!--<br>-->
-<!--<hr>-->
-<!--<br>-->
 
-<!--        Action Graphs Section-->
+<!--        Canonicalization Section-->
 <table align=center>
-    <center><h1 id="action_graphs">Action Graphs</h1></center>
+    <center><h1 id="canonicalization">Scene Graph Canonicalization</h1></center>
 </table>
 <p>
     Classic work in cognitive-psychology argues that actions (and more generally events) are bounded regions of space-time and are composed of atomic action units (Quin, 1985; Zacks and Tversky, 2001). In a video, multiple actions can be applied to one or more objects, changing the relationships between the object and the subject of an action over time. Based on these observations, we introduce a formalism we call an <b>Action Graph</b>, a graph where nodes are objects, and the edges are actions specified by their start and end time.
 </p>
-<center><img src="data/videos/ag_vd.gif" align="middle"></center>
-<p>
-    <b>Action Graph</b> is a natural and convenient structure representing the dynamics of actions between objects over time. To execute an Action Graph, each action (and its corresponding edge) is assigned with a "clock" which marks the progress of the action in a particular timestep.
-
-
-</p>
-<!--        , and propose a new video synthesis task from action graphs. We present a novel action-graph-to-video (AG2Vid) model for this task-->
-<!--and show we can synthesize goal-oriented videos on the CATER and Something Something datasets.-->
-<br>
-<center><img src="data/figures/clocked_edges.png" width=789 align="middle"></center>
-<br><br>
-<hr>
-<br>
+<center><img src="data/videos/canoncial.gif" align="middle"></center>
 
 
 <!--        Model Section-->
@@ -326,14 +308,14 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
         <td><a href="https://arxiv.org/pdf/1912.07414.pdf"></a></td>
         <td>
             <span style="font-size:14pt"> Roei Herzig*, Amir Bar*, Huijuan Xu, Gal Chechik, Trevor Darrell, Amir Globerson
-                <br>
+                <br><br>
                 <i>Learning Canonical Representations for Scene Graph to Image Generation</i>
-                <br>
+                <br><br>
                 In ECCV, 2020
                 <br>
                 Hosted on <a href="https://arxiv.org/abs/1912.07414">arXiv</a>
             </span>
-            <br>
+            <br><br>
             <span style="font-size:14px"><sup>*</sup>Equal contribution</span>
         </td>
         <span style="font-size:4pt"><a href="https://arxiv.org/pdf/1912.07414.pdf"><br></a></span>
@@ -347,10 +329,9 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
             <left>
                 <center><h1>Acknowledgements</h1></center>
 
-                This project has received funding from the European Research Council (ERC) under the European Unions
-                Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell's group was
-                supported in part by DoD, NSF, BAIR, and BDD. We would also like to thank Anna Rohrbach for valuable
-                feedback and comments on drafts, and Lior Bracha for running the MTurk experiments.
+                This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research
+                and innovation programme (grant ERC HOLI 819080). Prof. Darrell's group was supported in part by DoD, NSF, BAIR, and BDD.
+                We would also like to thank Xiaolong Wang for comments on drafts.
             </left>
         </td>
     </tr>
