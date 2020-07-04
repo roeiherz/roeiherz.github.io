@@ -220,10 +220,18 @@ Our contributions are thus: <br>
 <table align=center>
     <center><h1 id="canonicalization">Scene Graph Canonicalization</h1></center>
 </table>
+
 <p>
-    Classic work in cognitive-psychology argues that actions (and more generally events) are bounded regions of space-time and are composed of atomic action units (Quin, 1985; Zacks and Tversky, 2001). In a video, multiple actions can be applied to one or more objects, changing the relationships between the object and the subject of an action over time. Based on these observations, we introduce a formalism we call an <b>Action Graph</b>, a graph where nodes are objects, and the edges are actions specified by their start and end time.
+    Since the same image can be represented by multiple logically equivalent SGs, we propose an approach to canonicalize graphs to enforce invariance to these equivalences.
+    Given an input of SG, our model calculated a weighted canonicalized graph.
 </p>
-<center><img src="data/videos/canoncial.gif" align="middle"></center>
+<center><img src="data/figures/architecture.png" align="middle"></center>
+<br><br>
+<p>
+    First, the antisymmetry relations are added with its corresponding converse weight (e.g., R(left, right)), then, transitive relations are added, and we set the weight to be the product of weights.
+    Finally, the model learns to form the canonical graph
+</p>
+<center><img src="data/videos/Canonicalization.gif" align="middle"></center>
 
 
 <!--        Model Section-->
@@ -246,14 +254,15 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
 </table>
 
 <table align=center width=850px>
-    <center><h1 id="new_actions">Composing new unseen actions</h1></center>
+
+    <center><h1>Scene manipulation</h1></center>
 </table>
-<p>Based on the existing actions, we can create new actions in test time. For example, we can use the actions "Slide" and "Pick Place" to create the new action "Swap". </p>
+<p>We also introduce AttSAPDE, an attributes generator, that by manipulating the attributes of the objects, the scene is generated accordingly. </p>
 <table>
     <tr>
         <center>
-            <img src="data/videos/compositional_smth_cater.gif"/></center>
-        <p>Compositional action synthesis in Something-Something and CATER.</p>
+            <img src="data/videos/scene_manipulation.gif"/></center>
+<!--        <p>Compositional action synthesis in Something-Something and CATER.</p>-->
     </tr>
 </table>
 <br>
@@ -263,11 +272,11 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
 </table>
 <table>
     <tr>
-        <center>
-            <img src="data/videos/actions_cater.gif"/></center>
-        <p>Qualitative examples for the generation of actions on the CATER dataset.
-            We use the AG2Vid model to generate videos of four standard actions
-            and two composed unseen actions (<i>Swap</i> and <i>Huddle</i>).</p>
+        <center><p>Generation with large graph sizes</p></center>
+        <center><img src="data/videos/actions_cater.gif"/></center>
+        <p>We show our model generalizes over the number of objects in the graph.
+            For example, the baseline and our model were trained on a fixed number of objects,
+            but when tested on a large number, the baselines collapse (1st row vs. 2nd row)</p>
     </tr>
 </table>
 <br>
