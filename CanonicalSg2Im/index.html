@@ -222,8 +222,9 @@ Our contributions are thus: <br>
 </table>
 
 <p>
-    Since the same image can be represented by multiple logically equivalent SGs, we propose an approach to canonicalize graphs to enforce invariance to these equivalences.
-    Given an input of SG, our model calculated a weighted canonicalized graph.
+    We propose an approach to canonicalize graphs to enforce invariance to these equivalences since multiple logically equivalent SGs can represent the same image.
+    Given an input of SG, our model calculated a weighted canonicalized graph, followed a GCN for generating robust layouts.
+
 </p>
 <center><img src="data/figures/architecture.png" align="middle"></center>
 <br><br>
@@ -239,8 +240,9 @@ Our contributions are thus: <br>
     <center><h1 id="model">Model</h1></center>
 </table>
 <MATH>
-We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.
-Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.
+    bla
+<!--We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.-->
+<!--Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.-->
 </MATH>
 <br><br>
 <center><img src="data/figures/model.png" width=789 align="middle"></center>
@@ -254,58 +256,89 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
 </table>
 
 <table align=center width=850px>
+    <center><h1>Generation with large graph sizes</h1></center>
+</table>
+<table>
+    <tr>
+        <p> We show our model generalizes over the number of objects in the graph.</p>
+        <center><img src="data/figures/large_graph_size.png"/></center>
+        <p> For example, the baseline and our model were trained on a fixed number of objects,
+            but when tested on a large number, the baselines collapse (top row vs. down row)</p>
+    </tr>
+</table>
+<br>
 
+<table align=center width=850px>
+    <center><h1>Robustness to semantic equivalent</h1></center>
+</table>
+<table>
+    <tr>
+        <p>A key advantage of our model is that it produces similar layouts for semantically equivalent graphs.
+            To achieve this, we generate a semantically equivalent SG by randomly choosing to include/exclude edges
+            that don't change the semantics. </p>
+        <center><img src="data/figures/semantic_eqv.png"/></center>
+        <p>Each input SG is modified and mapped into a semantically equivalent random SG at test time.
+            The layout-to-image model is fixed to LostGAN and different SG-to-layout models are tested.
+            (a) Original SG (partial) (b) A semantically equivalent SG (partial) (c) WSGC SG-to-layout for the equivalent SG.
+            (d) Sg2Im SG-to-layout for the equivalent SG.</p>
+    </tr>
+</table>
+<br>
+
+<table align=center width=850px>
+    <center><h1>Robustness to adversarial modifications and noise</h1></center>
+</table>
+
+<table>
+    <tr>
+        <p> Conflicting edges in the input SG could be due to unintended or adversarial modifications.
+            We analyze how modifications affect the model by randomly modifying 10% of the relations.
+        </p>
+        <center> <img src="data/figures/table2.png"/></center>
+        <p> We evaluate the robustness of the learned Canonical Representation for models which were trained on Packed COCO (images with 16+ objects in COCO).
+            We compare our WSGC model to the Sg2Im baseline with a GCN of 5 layers and even more.
+            It can be seen that increasing the GCN size comes at the price of overfitting.
+<!--            For each SG, a semantically equivalent SG is sampled and evaluated at test time.-->
+<!--            Additionally, models are evaluated on Noisy SGs, for which edges contain 10% randomly chosen relations.-->
+        </p>
+    </tr>
+</table>
+<br>
+
+<hr>
+<table align=center width=850px>
+    <center><h1>Attribute SPADE</h1></center>
+</table>
+<p> The key idea in the AttSPADE model is to condition generation on the attributes,
+    as opposed to only the object class as done in current models.</p>
+
+<table align=center width=850px>
     <center><h1>Scene manipulation</h1></center>
 </table>
-<p>We also introduce AttSAPDE, an attributes generator, that by manipulating the attributes of the objects, the scene is generated accordingly. </p>
 <table>
     <tr>
         <center>
             <img src="data/videos/scene_manipulation.gif"/></center>
-<!--        <p>Compositional action synthesis in Something-Something and CATER.</p>-->
+        <p> A demonstration of the AttSPADE that by manipulating the attributes of the objects,
+            the scene is generated accordingly. </p>
     </tr>
 </table>
 <br>
+
 
 <table align=center width=850px>
     <center><h1>Qualitative examples</h1></center>
 </table>
 <table>
     <tr>
-        <center><p>Generation with large graph sizes</p></center>
-        <center><img src="data/videos/actions_cater.gif"/></center>
-        <p>We show our model generalizes over the number of objects in the graph.
-            For example, the baseline and our model were trained on a fixed number of objects,
-            but when tested on a large number, the baselines collapse (1st row vs. 2nd row)</p>
-    </tr>
-</table>
-<br>
-
-<table>
-    <tr>
-        <center>
-            <img src="data/videos/actions_smth.gif"/></center>
-        <p>Qualitative examples for the generation of actions on the Something Something dataset.
-            We use our AG2Vid model to generate videos of eight standard actions
-            and two composed unseen actions (<i>Right Up</i> and <i>Down Left</i>).</p>
-    </tr>
-</table>
-<br>
-
-<table align=center width=850px>
-    <center><h1>Comparison to existing methods</h1></center>
-</table>
-
-<table>
-    <tr>
         <center>
             <img src="data/videos/compare_results.gif"/></center>
-        <p>Comparison of baselines methods. The top two rows are based on CATER videos,
-            while the bottom two rows are based on Something Something videos.
-            The OURS + FLOW model refers to our model without the S generator network (flows prediction only).</p>
     </tr>
 </table>
-<br><br>
+<br>
+
+
+<br>
 <hr>
 <br>
 
