@@ -331,12 +331,61 @@ Our contributions are thus: <br>
 </table>
 <table>
     <tr>
-        <center>
-            <img src="data/videos/compare_results.gif"/></center>
+        <center> <img src="data/figures/coco128_generation_compare_eccv.jpg"/></center>
+        <p> Selected GT layout-to-image generation results on COCO-Stuff dataset on 128x128 resultion.
+            Here, the GT layout also includes masks. (a) GT image. (b) Generation with LostGAN model.
+            (c) Generation with Grid2Im. (d) Generation with AttSPADE model (ours). </p>
     </tr>
 </table>
 <br>
 
+<table>
+    <tr>
+        <center> <img src="data/figures/coco256_generation_compare_eccv.jpg"/></center>
+        <p> Selected generation results on the COCO-Stuff dataset at 256x256 resolution.
+            Here the GT layout also includes masks. (a) GT image. (b) Generation with Grid2Im using the GT layout.
+            (c) Generation with Grid2Im No-att from the scene graph (GT layout not used).
+            (d) Generation with AttSPADE model (Ours) using the GT layout.
+            (e) Generation with WSGC + AttSPADE model (Ours) from the scene graph (GT layout not used) </p>
+    </tr>
+</table>
+<br>
+
+<table>
+    <tr>
+        <center> <img src="data/figures/vg128_generation_compare_eccv.jpg"/></center>
+        <p> Selected scene-graph-to-image results on Visual Genome dataset on 128x128 resolution.
+            Here, the GT layout includes only boxes. (a) GT image. (b) Generation using LostGAN using the GT layout.
+            (c) Generation with the WSGC + LostGAN using the scene graph (GT layout not used).
+            (d) Generation with the AttSPADE model (Ours) using the GT Layout.
+            (e) Generation with the WSGC + AttSPADE model (Ours) using the scene graph (GT layout not used). </p>
+    </tr>
+</table>
+<br>
+
+<table>
+    <tr>
+        <center> <img src="data/figures/vg256_generation_compare_eccv.jpg"/></center>
+        <p> Selected scene-graph-to-image results on the Visual Genome dataset at 256x256 resolution.
+            Here, the GT layout includes only boxes. (a) GT image. (b) Generation with the AttSPADE model (Ours) using GT Layout.
+            (c) Generation with the WSGC + AttSPADE model (Ours) using the scene graph (GT layout not used). </p>
+    </tr>
+</table>
+<br>
+
+
+<table align=center width=850px>
+    <center><h1>Quantitative examples</h1></center>
+</table>
+<table>
+    <tr>
+        <center> <img src="data/figures/attspade_table.png"/></center>
+        <p> Quantitative comparisons for SG-to-image methods using Inception Score (higher is better),
+            FID (lower is better) and Diversity Score (higher is better).
+            Evaluation is done on the COCO-Stuff and VG datasets. </p>
+    </tr>
+</table>
+<br>
 
 <br>
 <hr>
