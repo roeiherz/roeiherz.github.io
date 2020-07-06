@@ -15,7 +15,7 @@
         font-size: 18px;
         margin-left: auto;
         margin-right: auto;
-        width: 60%;
+        width: 55%;
     }
 
     h1 {
@@ -143,7 +143,13 @@
             <td align=center>
                 <center>
                     <span style="font-size:20px">
-                        <sup>1</sup>Tel-Aviv University &nbsp;<sup>2</sup>UC Berkeley &nbsp;<sup>3</sup>Bar-Ilan University, NVIDIA Research &nbsp;<sup>4</sup>Zebra Medical Vision
+                        <sup>1</sup>Tel-Aviv University
+                        <br>
+                        <sup>2</sup>UC Berkeley
+                        <br>
+                        <sup>3</sup>Bar-Ilan University, NVIDIA Research
+                        <br>
+                        <sup>4</sup>Zebra Medical Vision
                     </span>
                 </center>
             </td>
@@ -229,21 +235,32 @@ Our contributions are thus: <br>
 <center><img src="data/figures/architecture.png" align="middle"></center>
 <br><br>
 <p>
-    First, the antisymmetry relations are added with its corresponding converse weight (e.g., R(left, right)),
-    then, transitive relations are added, and we set the weight to be the product of weights.
+    Given the input graph, two weighted completion steps are performed.
+    The first step is the Converse Completion: Anti-symmetry relations are added with its corresponding converse weight (e.g., R(left, right)).
+    The second step is the Transitive Completion: Transitive relations are added, and we set the weight to be the product of weights.
     Finally, the model learns to form the canonical graph.
+    <br>
+    Here an example of the process.
+
 </p>
 <center><img src="data/videos/Canonicalization.gif" align="middle"></center>
 
 
 <!--        Model Section-->
 <table align=center>
-    <center><h1 id="model">Model</h1></center>
+    <center><h1 id="model">WSGC Model</h1></center>
 </table>
 <MATH>
-    bla
-<!--We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.-->
-<!--Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.-->
+
+    We proposed the <b>WSGC</b> <b>model</b> (Weighted Scene Graph Canonicalization) that learns the canonicalization process from data.
+    However, a method for obtaining a weighted relation graph is computationally demanding (though poly-time)
+    for large SGs since the transitivity step is performed on a dense graph (most weights will be non-zero). Thus we present a faster alternative.
+    We propose replacing the converse completion step with a sampling-based approach that samples completed edges, but always gives them a weight of 1 when added.
+    In this way, the transitive step is computed on a much sparser graph with weights 1.
+
+
+
+
 </MATH>
 <br><br>
 <center><img src="data/figures/model.png" width=789 align="middle"></center>
