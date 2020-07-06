@@ -254,8 +254,8 @@ Our contributions are thus: <br>
 
     We proposed the <b>WSGC</b> <b>model</b> (Weighted Scene Graph Canonicalization) that learns the canonicalization process from data.
     However, a method for obtaining a weighted relation graph is computationally demanding (though poly-time)
-    for large SGs since the transitivity step is performed on a dense graph (most weights will be non-zero). Thus we present a faster alternative.
-    We propose replacing the converse completion step with a sampling-based approach that samples completed edges, but always gives them a weight of 1 when added.
+    for large SGs since the transitivity step is performed on a dense graph (most weights will be non-zero). Thus, we present a faster alternative.
+    We propose replacing the converse completion step with a sampling-based approach using the REINFORCE algorithm that samples completed edges, but always gives them a weight of 1 when added.
     In this way, the transitive step is computed on a much sparser graph with weights 1.
 
 
@@ -263,7 +263,7 @@ Our contributions are thus: <br>
 
 </MATH>
 <br><br>
-<center><img src="data/figures/model.png" width=789 align="middle"></center>
+<center><img src="data/figures/wsgcs.jpg" width=789 align="middle"></center>
 <br><br>
 <hr>
 <br>
