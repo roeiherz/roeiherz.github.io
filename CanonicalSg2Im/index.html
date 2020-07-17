@@ -297,10 +297,10 @@ This in turn leads to <b>generalization on semantically equivalent graphs and im
             To achieve this, we generate a semantically equivalent SG by randomly choosing to include/exclude edges
             that don't change the semantics. </p>
         <center><img src="data/figures/semantic_eqv.png"/></center>
-        <p>Each input SG is modified and mapped into a semantically equivalent random SG at test time.
-            The layout-to-image model is fixed to LostGAN and different SG-to-layout models are tested.
-            (a) Original SG (partial) (b) A semantically equivalent SG (partial) (c) WSGC SG-to-layout for the equivalent SG.
-            (d) Sg2Im SG-to-layout for the equivalent SG.</p>
+        <p> Each input SG is changed to a semantically equivalent SG at test time.
+            The layout-to-image model is LostGAN and different SG-to-layout models are tested.
+            (a) Original SG (partial). (b) A  modified semantically equivalent SG (partial). (c) GT image.
+            (d-e) Sg2Im and WSGC for the original SG. (f-g) Sg2Im and WSGC for the modified SG.</p>
     </tr>
 </table>
 <br>
