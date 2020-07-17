@@ -349,44 +349,52 @@ Our contributions are thus: <br>
 </table>
 <table>
     <tr>
-        <center> <img src="data/figures/coco128_generation_compare_eccv.jpg"/></center>
+        <center> <img src="data/figures/coco128_generation_compare.jpg"/></center>
         <p> Selected GT layout-to-image generation results on COCO-Stuff dataset on 128x128 resultion.
-            Here, the GT layout also includes masks. (a) GT image. (b) Generation with LostGAN model.
-            (c) Generation with Grid2Im. (d) Generation with AttSPADE model (ours). </p>
+            Here, we compare our AttSPADE model, Grid2Im and LostGAN on generation from GT layout of masks.
+            (a) GT layout (only masks). (b) GT image. (c) Generation with LostGAN model. (d) Generation with Grid2Im.
+            (e) Generation with AttSPADE model (ours).
+        </p>
     </tr>
 </table>
 <br>
 
 <table>
     <tr>
-        <center> <img src="data/figures/coco256_generation_compare_eccv.jpg"/></center>
+        <center> <img src="data/figures/coco256_generation_compare.jpg"/></center>
         <p> Selected generation results on the COCO-Stuff dataset at 256x256 resolution.
-            Here the GT layout also includes masks. (a) GT image. (b) Generation with Grid2Im using the GT layout.
-            (c) Generation with Grid2Im No-att from the scene graph (GT layout not used).
-            (d) Generation with AttSPADE model (Ours) using the GT layout.
-            (e) Generation with WSGC + AttSPADE model (Ours) from the scene graph (GT layout not used) </p>
+            Here, we compare our AttSPADE model and Grid2Im in two different settings:
+            generation from GT layout of masks and generation from scene graphs.
+            (a) GT scene graph. (b) GT layout (only masks). (c) GT image. (d) Generation with Grid2Im using the GT layout.
+            (e) Generation with Grid2Im No-att from the scene graph (GT layout not used).
+            (f) Generation with AttSPADE model (ours) using the GT layout.
+            (g) Generation with WSGC + AttSPADE model (ours) from the scene graph (GT layout not used). </p>
     </tr>
 </table>
 <br>
 
 <table>
     <tr>
-        <center> <img src="data/figures/vg128_generation_compare_eccv.jpg"/></center>
+        <center> <img src="data/figures/vg128_generation_compare.jpg"/></center>
         <p> Selected scene-graph-to-image results on Visual Genome dataset on 128x128 resolution.
-            Here, the GT layout includes only boxes. (a) GT image. (b) Generation using LostGAN using the GT layout.
-            (c) Generation with the WSGC + LostGAN using the scene graph (GT layout not used).
-            (d) Generation with the AttSPADE model (Ours) using the GT Layout.
-            (e) Generation with the WSGC + AttSPADE model (Ours) using the scene graph (GT layout not used). </p>
+            Here, we compare our AttSPADE model and LostGAN in two different settings:
+            generation from GT layout of boxes and generation from scene graphs.
+            (a) GT scene graph. (b) GT layout (only boxes). (c) GT image. (d) Generation using LostGAN from the GT layout.
+            (e) Generation with the WSGC + LostGAN from the scene graph (GT layout not used).
+            (f) Generation with the AttSPADE model (ours) from the GT Layout.
+            (g) Generation with the WSGC + AttSPADE model (ours) from the scene graph (GT layout not used). </p>
     </tr>
 </table>
 <br>
 
 <table>
     <tr>
-        <center> <img src="data/figures/vg256_generation_compare_eccv.jpg"/></center>
+        <center> <img src="data/figures/vg256_generation_compare.jpg"/></center>
         <p> Selected scene-graph-to-image results on the Visual Genome dataset at 256x256 resolution.
-            Here, the GT layout includes only boxes. (a) GT image. (b) Generation with the AttSPADE model (Ours) using GT Layout.
-            (c) Generation with the WSGC + AttSPADE model (Ours) using the scene graph (GT layout not used). </p>
+            Here, we test our AttSPADE model in two different settings: generation from GT layout of boxes and generation from scene graphs.
+            (a) GT scene graph. (b) GT layout (only boxes). (c) GT image.
+            (d) Generation with the AttSPADE model (ours) from the GT Layout.
+            (e) Generation with the WSGC + AttSPADE model (ours) from the scene graph (GT layout not used). </p>
     </tr>
 </table>
 <br>
