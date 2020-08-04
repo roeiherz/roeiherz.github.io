@@ -1,0 +1,6 @@
+@InProceedings{herzig2019canonical,
+    title     = {Learning Canonical Representations for Scene Graph to Image Generation},
+    author = {Herzig, Roei and Bar, Amir and Xu, Huijuan and
+              Chechik, Gal and Darrell, Trevor and Globerson, Amir},
+    year      = {2020},
+}
