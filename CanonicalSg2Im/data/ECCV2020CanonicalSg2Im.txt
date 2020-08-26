@@ -2,5 +2,6 @@
     title     = {Learning Canonical Representations for Scene Graph to Image Generation},
     author = {Herzig, Roei and Bar, Amir and Xu, Huijuan and
               Chechik, Gal and Darrell, Trevor and Globerson, Amir},
+    booktitle = {European Conference on Computer Vision},
     year      = {2020},
 }
