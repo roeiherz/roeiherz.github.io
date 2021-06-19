@@ -3,7 +3,7 @@
 
 <!-- ======================================================================= -->
 <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<!--<script type="text/javascript">google.load("jquery", "1.3.2");</script>-->
 <style type="text/css">
     table {
         margin-bottom: 5px;
@@ -109,6 +109,14 @@
 
 
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108048997-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108048997-1');
+  </script>
 
     <title>AG2Video</title>
     <meta property="og:title" content="Compositional Video Synthesis with Action Graphs"/>
