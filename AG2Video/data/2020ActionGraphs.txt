@@ -1,5 +1,6 @@
-@misc{2020ActionGraphs,
-    author={Amir Bar and Roei Herzig and Xiaolong Wang and Gal Chechik and Trevor Darrell and Amir Globerson},
-    title={Compositional Video Synthesis with Action Graphs},
-    year={2020},
+@article{bar2020compositional,
+  title={Compositional video synthesis with action graphs},
+  author={Bar, Amir and Herzig, Roei and Wang, Xiaolong and Chechik, Gal and Darrell, Trevor and Globerson, Amir},
+  journal={arXiv preprint arXiv:2006.15327},
+  year={2020}
 }

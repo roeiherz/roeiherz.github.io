@@ -120,7 +120,7 @@
     <span style="font-size:36px">Compositional Video Synthesis with Action Graphs</span>
     <br><br>
 
-    <span style="font-size:24px">Preprint. Under review.</span>
+    <span style="font-size:24px">ICML 2021</span>
     <br><br><br>
     <table align=center>
         <tr>
@@ -129,6 +129,7 @@
         </tr><br>
         <tr>
             <span style="font-size:24px"><a href="http://www.cs.cmu.edu/~xiaolonw/">Xiaolong Wang</a><sup>2,3</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://anna-rohrbach.net/">Anna Rohrbach</a><sup>2</sup></span> &nbsp;
             <span style="font-size:24px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>4</sup></span> &nbsp;
             <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
             <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
@@ -163,12 +164,6 @@
             </td>
             <td align=center>
                 <center>
-                        <span style="font-size:24px"><a href='https://www.dropbox.com/s/yh110evfjw3bwkf/ActionGraph.pdf?dl=0'> [Slides]</a></span>
-                </center>
-            </td>
-
-            <td align=center>
-                <center>
                         <span style="font-size:24px"><a href='https://github.com/roeiherz/AG2Video'> [GitHub]</a></span>
                 </center>
             </td>
@@ -179,6 +174,8 @@
             </td>
         </tr>
     </table>
+<br>
+<center><img src="data/videos/ag2vid_task.gif" align="middle"></center>
 
 </center>
 <!--<left>    <span style="font-size:18px"><sup>*</sup>Equally contributed</span> </left>-->
@@ -186,47 +183,12 @@
 <br><br><br>
 <hr>
 <table align=center>
-    <center><h1>Abstract</h1></center>
+    <center><h1>Goals</h1></center>
 </table>
-
-Videos of actions are complex spatio-temporal signals, containing rich compositional structures.
-Current generative models are limited in their ability to generate examples of object configurations outside the range
-they were trained on.
-Towards this end, we introduce a generative model (AG2Vid) based on Action Graphs, a natural and convenient structure
-that represents the dynamics of actions between objects over time.
-Our AG2Vid model disentangles appearance and position features, allowing for more accurate generation.
-AG2Vid is evaluated on the CATER and Something-Something datasets and outperforms other baselines.
-Finally, we show how Action Graphs can be used for generating novel compositions of unseen actions.
-
-<br>
-<center><img src="data/videos/ag2vid_task.gif" align="middle"></center>
-<br>
-<hr>
-<!--        Contribution Section-->
-<table align=center>
-    <center><h1>Contributions</h1></center>
-</table>
-Our contributions are thus: <br>
-1) Introducing the formalism of <a href="#action_graphs">Action Graphs</a> (AG). <br>
-2) Proposing a new video synthesis task (AG2Vid) and presenting a new <a href="#model">model</a> for this task. <br>
-3) Demonstrating an approach for constructing  <a href="#new_actions">new actions</a> out of existing atomic actions.
-<br><br>
-<!--<center><img src="data/videos/contributions.gif" width=789 align="middle"></center>-->
-<!--<br>-->
+Our main goal is to learn to synthesize videos of actions. More specifically, our model should be able to synthesize videos given multiple (potentially simulatnious) timed actions with multiple number of objects. Towards this end, we present the <a href="#action_graphs">Action Graph</a> (AG) structure which we use to represent timed actions and objects, and the <a href="#model">AG2Vid</a> model which can synthesize videos conditioned on actions given in AGs and initial image and layout.
+<br><br><br>
 <hr>
 <br>
-
-<!--        Motivation Section-->
-<!--<table align=center>-->
-<!--    <center><h1>Motivation</h1></center>-->
-<!--</table>-->
-<!--<br><br>-->
-<!--<center><img src="data/videos/motivation.gif" width=789 align="middle"></center>-->
-<!--<br>-->
-<!--<hr>-->
-<!--<br>-->
-
-<!--        Action Graphs Section-->
 <table align=center>
     <center><h1 id="action_graphs">Action Graphs</h1></center>
 </table>
@@ -235,14 +197,13 @@ Our contributions are thus: <br>
 </p>
 <center><img src="data/videos/ag_vd.gif" align="middle"></center>
 <p>
-    <b>Action Graph</b> is a natural and convenient structure representing the dynamics of actions between objects over time. To execute an Action Graph, each action (and its corresponding edge) is assigned with a "clock" which marks the progress of the action in a particular timestep.
+    <b>Action Graph</b> is a natural and convenient structure representing the dynamics of actions between objects over time.
 
 
 </p>
 <!--        , and propose a new video synthesis task from action graphs. We present a novel action-graph-to-video (AG2Vid) model for this task-->
 <!--and show we can synthesize goal-oriented videos on the CATER and Something Something datasets.-->
 <br>
-<center><img src="data/figures/clocked_edges.png" width=789 align="middle"></center>
 <br><br>
 <hr>
 <br>
@@ -253,8 +214,13 @@ Our contributions are thus: <br>
     <center><h1 id="model">Model</h1></center>
 </table>
 <MATH>
-We proposed the Ag2Vid model. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.
-Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is used to generate the next frame v<sub>t+1</sub>.
+We proposed the AG2Vid model. The video synthesis process is done in a coarse-to-fine manner, starting from scheduling the time-specific actions of the Action Graph. This is followed by the prediction of the next object locations which are then used to synthesize the next image pixels v<sub>t</sub>.
+To execute an Action Graph, each action (and its corresponding edge) is assigned with a "clock" which marks the progress of the action in a particular timestep. The Action Graph A<sub>t</sub> at time t describes the execution stage of each action at time t.
+<br>
+<center><img src="data/figures/clocked_edges.png" width=789 align="middle"></center>
+<br>
+
+Using the Action Graph at time t A<sub>t</sub> and together with the previous layout and frame (l<sub>t-1</sub>, v<sub>t-1</sub>) the AG2Vid model synthesizes the next frame v<sub>t</sub>.
 </MATH>
 <br><br>
 <center><img src="data/figures/model.png" width=789 align="middle"></center>
@@ -266,58 +232,59 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
 <table align=center width=850px>
     <center><h1>Results</h1></center>
 </table>
-
-<table align=center width=850px>
-    <center><h1 id="new_actions">Composing new unseen actions</h1></center>
-</table>
-<p>Based on the existing actions, we can create new actions in test time. For example, we can use the actions "Slide" and "Pick Place" to create the new action "Swap". </p>
-<table>
-    <tr>
-        <center>
-            <img src="data/videos/compositional_smth_cater.gif"/></center>
-        <p>Compositional action synthesis in Something-Something and CATER.</p>
-    </tr>
-</table>
-<br>
-
 <table align=center width=850px>
     <center><h1>Qualitative examples</h1></center>
 </table>
 <table>
     <tr>
         <center>
-            <img src="data/videos/actions_cater.gif"/></center>
-        <p>Qualitative examples for the generation of actions on the CATER dataset.
-            We use the AG2Vid model to generate videos of four standard actions
-            and two composed unseen actions (<i>Swap</i> and <i>Huddle</i>).</p>
+            <img src="data/videos/standard_actions.gif"/></center>
+        <p>Qualitative examples for the generation of actions on the CATER and Something-Something V2 datasets.
+            We use the AG2Vid model to generate videos of multiple (potentially simultanious) actions on CATER and single actions on Something-Something V2.</p>
     </tr>
 </table>
-<br>
+<br> <br>
 
+<table align=center width=850px>
+    <center><h1 id="sequential">Zero-shot synthesis of sequential actions</h1></center>
+</table>
+<p>We use the model trained on single actions on the Something-Something V2 dataset, and define more complex actions graphs, which contain sequential actions. In the given example, we define the sequence "Move up", "Move down", and "Move right".</p>
 <table>
     <tr>
         <center>
-            <img src="data/videos/actions_smth.gif"/></center>
-        <p>Qualitative examples for the generation of actions on the Something Something dataset.
-            We use our AG2Vid model to generate videos of eight standard actions
-            and two composed unseen actions (<i>Right Up</i> and <i>Down Left</i>).</p>
+            <img src="data/videos/seque.gif"/></center>
+    </tr>
+</table>
+<br>
+<table align=center width=850px>
+    <center><h1 id="simultaneous">Zero-shot synthesis of simultaneous actions</h1></center>
+</table>
+<p>We use the model trained on single actions on the Something-Something V2 dataset, and define more complex actions graphs, which contain simultaneous actions. In the given example, we define the actions "Move right", "Move left" simultaneously.</p>
+<table>
+    <tr>
+        <center>
+            <img src="data/videos/simu.gif"/></center>
     </tr>
 </table>
 <br>
 
 <table align=center width=850px>
-    <center><h1>Comparison to existing methods</h1></center>
+    <center><h1 id="new_actions">Zero-shot synthesis of new action composites</h1></center>
 </table>
 
 <table>
     <tr>
+                <p>Qualitative examples for the generation of new action composites on the Something-Something V2 and CATER datasets.
+            We use the Action Graph representation to define 4 new action composites out of the existing actions, and use our AG2Vid model to generate corresponding videos.</p>
+
+    </tr>
+    <tr>
         <center>
-            <img src="data/videos/compare_results.gif"/></center>
-        <p>Comparison of baselines methods. The top two rows are based on CATER videos,
-            while the bottom two rows are based on Something Something videos.
-            The OURS + FLOW model refers to our model without the S generator network (flows prediction only).</p>
+            <img src="data/videos/compositional_results.gif"/></center>
     </tr>
 </table>
+<br>
+
 <br><br>
 <hr>
 <br>
@@ -329,15 +296,24 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
                                                                 src="data/figures/paper.png"/></a></td>
         <td><a href="https://arxiv.org/pdf/2006.15327.pdf"></a></td>
         <td>
-                <span style="font-size:14pt"> Amir Bar*, Roei Herzig*, Xiaolong Wang, Gal Chechik, Trevor Darrell, Amir Globerson<br>
+                <span style="font-size:14pt"> Amir Bar*, Roei Herzig*, Xiaolong Wang, Anna Rohrbach, Gal Chechik, Trevor Darrell, Amir Globerson<br>
               <i>Compositional Video Synthesis with Action Graphs</i><br>
-            Arxiv<br>
+            ICML 2021<br>
             Hosted on <a href="https://arxiv.org/abs/2006.15327">arXiv</a>
                 </span>
             <br>
             <span style="font-size:18px"><sup>*</sup>Equal contribution</span>
         </td>
         <span style="font-size:4pt"><a href="https://arxiv.org/pdf/2006.15327.pdf"><br></a></span>
+    </tr>
+</table>
+<hr>
+<table align=center style="margin-bottom: 50px">
+    <tr>
+        <td>
+            <center><h1>Related Works</h1></center>
+            Our work builds and borrows code from multiple past works such as <a href="https://github.com/google/sg2im">SG2Im</a>, <a href="https://roeiherz.github.io/CanonicalSg2Im/">Canonical-SG2IM</a> and <a href="https://github.com/NVIDIA/vid2vid">Vid2Vid</a>. If you found our work helpful, consider citing these works as well.
+        </td>
     </tr>
 </table>
 
@@ -347,11 +323,7 @@ Together with the previous layout and frame (l<sub>t</sub>, v<sub>t</sub>) it is
         <td>
             <left>
                 <center><h1>Acknowledgements</h1></center>
-
-                This project has received funding from the European Research Council (ERC) under the European Unions
-                Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Prof. Darrell's group was
-                supported in part by DoD, NSF, BAIR, and BDD. We would also like to thank Anna Rohrbach for valuable
-                feedback and comments on drafts, and Lior Bracha for running the MTurk experiments.
+            We would like to thank Lior Bracha for her help running MTurk experiments, and to Haggai Maron and Yuval Atzmon for helpful feedback and discussions. This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080). Trevor Darrell’s group was supported in part by DoD including DARPA's XAI, LwLL, and/or SemaFor programs, as well as BAIR's industrial alliance programs. Gal Chechik's group was supported by the Israel Science Foundation (ISF 737/2018), and by an equipment grant to Gal Chechik and Bar-Ilan University from the Israel Science Foundation (ISF 2332/18). This work was completed in partial fulfillment for the Ph.D degree of Amir Bar.
             </left>
         </td>
     </tr>
