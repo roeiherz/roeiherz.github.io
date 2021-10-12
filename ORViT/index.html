@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- ======================================================================= -->
+<!--<script src="http://www.google.com/jsapi" type="text/javascript"></script>-->
+<!--<script type="text/javascript">google.load("jquery", "1.3.2");</script>-->
+<style type="text/css">
+    table {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    body {
+        font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
+
+    h1 {
+        font-weight: 300;
+    }
+
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        padding: 20px;
+    }
+
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img {
+        width: 100%
+    }
+
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    a:link, a:visited {
+        color: #1367a7;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35), /* The third layer shadow */ 15px 15px 0 0px #fff, /* The fourth layer */ 15px 15px 1px 1px rgba(0, 0, 0, 0.35), /* The fourth layer shadow */ 20px 20px 0 0px #fff, /* The fifth layer */ 20px 20px 1px 1px rgba(0, 0, 0, 0.35), /* The fifth layer shadow */ 25px 25px 0 0px #fff, /* The fifth layer */ 25px 25px 1px 1px rgba(0, 0, 0, 0.35); /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35); /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
+
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+
+    #authors td {
+        padding-bottom: 5px;
+        padding-top: 30px;
+    }
+</style>
+
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108048997-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108048997-1');
+  </script>
+
+    <title>ORViT</title>
+    <meta property="og:title" content="Object-Region Video Transformers"/>
+</head>
+
+<body>
+<br>
+<center>
+    <span style="font-size:36px">Object-Region Video Transformers</span>
+    <br><br>
+
+    <span style="font-size:24px">Technical Report, 2021</span>
+    <br><br><br>
+    <table align=center>
+        <tr>
+            <span style="font-size:24px"><a href="https://roeiherz.github.io/">Roei Herzig</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:24px">Elad Ben-Avraham<sup>1</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://karttikeya.github.io/">Karttikeya Mangalam</a><sup>2</sup></span> &nbsp;
+<!--        </tr><br>-->
+<!--        <tr>-->
+            <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>3</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="https://anna-rohrbach.net/">Anna Rohrbach</a><sup>2</sup></span> &nbsp;
+<!--        </tr><br>-->
+<!--        <tr>-->
+            <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
+        </tr>
+    </table>
+
+<!--    <span style="font-size:18px"><sup>*</sup>Equally contributed</span>-->
+<!--    <br><br>-->
+
+    <table align=center>
+        <tr>
+            <td align=center>
+                <center>
+                    <span style="font-size:20px">
+                        <sup>1</sup>Tel-Aviv University &nbsp;<sup>2</sup>UC Berkeley &nbsp;<sup>3</sup>Bar-Ilan University, NVIDIA Research
+                    </span>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <br>
+
+
+<!--    <span style="font-size:24px">Preprint. Under review.</span>-->
+
+    <table align=center>
+        <tr>
+            <td align=center>
+                <center>
+                    <span style="font-size:24px"><a href="https://arxiv.org/abs/2006.15327"> [Paper]</a></span>
+                </center>
+            </td>
+            <td align=center>
+                <center>
+                        <span style="font-size:24px"><a href='https://github.com/roeiherz/ORViT'> [GitHub]</a></span>
+                </center>
+            </td>
+            <td align=center>
+                <center>
+                        <span style="font-size:24px"><a href='data/2021ORViT.txt'> [Bibtex]</a></span>
+                </center>
+            </td>
+        </tr>
+    </table>
+<br>
+<center><img src="data/figures/teaser.png" align="middle"></center></center>
+<br><br>
+Our ORViT model introduces <i>class-agnostic</i> object-centric information into the transformer self-attention operation.
+The figure shows the standard (uniformly spaced) patch-tokens in <span style="color:Blue;">blue</span>, and object-regions corresponding to class-agnostic detections
+in <span style="color:Orange;">orange</span>. In ORViT any temporal patch-token (e.g., the patch in <b>black</b> at time T)
+attends to all patch tokens (<span style="color:Blue;">blue</span>) and region tokens (<span style="color:Orange;">orange</span>).
+This allows the new patch representation to be informed by the objects.
+
+<br><br><br>
+<hr>
+<table align=center>
+    <center><h1>Abstract</h1></center>
+</table>
+Evidence from cognitive psychology suggests that understanding spatio-temporal object interactions and dynamics can be essential
+for recognizing actions in complex videos. Therefore, action recognition models are expected to benefit
+from explicit modeling of objects, including their appearance, interaction, and dynamics.
+Recently, video transformers have shown great success in video understanding, exceeding CNN performance.
+Yet, existing video transformer models do not explicitly model objects.
+In this work, we present Object-Region Video Transformers (ORViT), an <i>object-centric</i> approach
+that extends video transformer layers with a block that directly incorporates object representations.
+The key idea is to fuse object-centric spatio-temporal representations throughout multiple transformer layers.
+Our ORViT block consists of two object-level streams: appearance and dynamics.
+In the appearance stream, an ``Object-Region Attention'' element applies self-attention over the patches and <i>object regions</i>.
+In this way, visual object regions interact with uniform patch tokens and enrich them with contextualized object information.
+We further model object dynamics via a separate ``Object-Dynamics Module'', which captures trajectory interactions, and show how to integrate the two streams. We evaluate our model on standard and compositional action recognition on Something-Something V2, standard action recognition on Epic-Kitchen100 and Diving48, and spatio-temporal action detection on AVA.
+We show strong improvement in performance across all tasks and datasets considered, demonstrating the value of a model that incorporates object representations into a transformer architecture.
+<br><br><br>
+<hr>
+<br>
+<table align=center>
+    <center><h1 id="motivation">Motivation</h1></center>
+</table>
+
+<p>
+    Consider the simple action of ``Picking up a coffee cup'' below.
+    Intuitively, a human recognizing this action would identify the hand, the coffee cup and the coaster, and perceive the upward movement of the cup.
+    This highlights three important cues needed for recognizing actions:
+    What/where are the objects? How do they interact? and how do they move?
+    Indeed, evidence from cognitive psychology also supports this structure of the action-perception system.
+    It seems intuitively clear that machine vision models should also capture this reasoning structure,
+    and indeed this has been explored in the past.
+</p>
+<center><img src="data/videos/motivation.gif" align="middle" width="300"></center>
+
+<br>
+<hr>
+<br>
+<table align=center>
+    <center><h1 id="object-centric">Object-Centric Approach</h1></center>
+</table>
+
+Existing state-of-the-art video transformer models do not explicitly model objects.
+Recently, video transformers have been introduced as a powerful video understanding models.
+In these models, each video frame is divided into patches, and a spatio-temporal self-attention architecture obtains a context-dependent representation for the patches.
+However, there is no explicit representation of objects in this approach, which makes it harder for such models to capture compositionality.
+The challenge in building such an architecture is that it should have components for modeling the appearance of objects, the interaction between objects, and the dynamics of the objects (irrespective of their visual appearance).
+An additional key desideratum is that video content outside the objects should not be discarded, as it contains important contextual information.
+We would like the objects to influence the representation of the scene, throughout the bottom-up process, rather than as a post-processing stage.
+Our key idea is that object regions can be introduced into transformers in a similar way to that of the regular patches, and dynamics can also be integrated into this framework in a natural way.
+We refer to our model as an ''Object-Region Video Transformer'' (or ORViT).
+<br><br><br>
+<center><img src="data/figures/object-centric.png" align="middle"></center>
+<br>
+<hr>
+<br>
+
+
+<!--        Model Section-->
+<table align=center>
+    <center><h1 id="block">ORViT Block</h1></center>
+</table>
+The ORViT block takes as input patch tokens and outputs refined patch tokens based on object information.
+Within the block, it uses a set of object bounding boxes that are predicted using largely class-agnostic off-the-shelf trackers and serve to inform the model which parts of video contain objects.
+This information is then used to generate two separate object-level streams: an ``Object-Region Attention'' stream that models appearance, and an ``Object-Dynamics Module'' stream that models trajectories.
+We re-integrate the appearance and trajectory stream into a set of refined patch tokens, which have the same dimensionality as the input to our ORViT.
+This means that the ORViT block can be called repeatedly.
+<center><img src="data/figures/highlevel_small.png" width=100 align="middle"></center>
+<hr><br>
+<table align=center>
+    <center><h1 id="model">Model</h1></center>
+</table>
+<br>
+<center><img src="data/figures/architecture.png" width=789 align="middle"></center>
+<br><br>
+We use the object regions to extract descriptor vectors per region from the input tokens, which we refer to as object tokens.
+These vectors are then concatenated with the THW patch tokens and serve as the keys and values, while the queries are only the patch tokens.
+Finally, the output of the block is THW patch tokens.
+Thus, the key idea is to fuse object-centric information into spatio-temporal representations.
+Namely, inject the TO object region tokens into patch tokens THW.
+
+<br><br>
+<hr>
+<br>
+
+
+<table align=center width=850px>
+    <center><h1>Visualizations</h1></center>
+</table>
+<table>
+    <tr>
+        <center>
+            <img src="data/figures/vis_figure1.png"/></center>
+        <p> <b>Attention Maps</b> comparison between the <i>ORViT+Mformer</i> and the <i>Mformer</i> on videos from the SSv2 dataset.
+            The visualization shows the attention maps corresponding to the CLS query.</p>
+    </tr>
+</table>
+<br><br>
+<table>
+    <tr>
+        <center>
+            <img src="data/figures/vis_figure2.png"/></center>
+        <p> <b>Object contribution to the patch tokens.</b> For each object token, we plot the attention weight given by the patch tokens, normalized over the patch tokens.</p>
+    </tr>
+</table>
+
+<br>
+
+<br><br>
+<hr>
+<br>
+
+<table align=center>
+    <center><h1>Paper</h1></center>
+    <tr>
+        <td><a href="https://arxiv.org/pdf/2006.15327.pdf"><img class="layered-paper-big" style="height:175px; width: 150px; margin-bottom: 50px"
+                                                                src="data/figures/paper.png"/></a></td>
+        <td><a href="https://arxiv.org/pdf/2006.15327.pdf"></a></td>
+        <td>
+                <span style="font-size:14pt"> Roei Herzig, Elad Ben-Avraham, Karttikeya Mangalam, Amir Bar, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
+              <i>Object-Region Video Transformers</i><br>
+            Tech report, 2021<br>
+            Hosted on <a href="https://arxiv.org/abs/2006.15327">arXiv</a>
+                </span>
+        </td>
+        <span style="font-size:4pt"><a href="https://arxiv.org/pdf/2006.15327.pdf"><br></a></span>
+    </tr>
+</table>
+<hr>
+<table align=center style="margin-bottom: 50px">
+    <tr>
+        <td>
+            <center><h1>Related Works</h1></center>
+            Our work builds and borrows code from multiple past works such as <a href="https://github.com/facebookresearch/SlowFast">SlowFast, MViT</a>, <a href="https://github.com/facebookresearch/TimeSformer">TimeSformer</a> and <a href="https://github.com/facebookresearch/Motionformer">MotionFormer</a>. If you found our work helpful, consider citing these works as well.
+        </td>
+    </tr>
+</table>
+
+<hr>
+<table align=center style="margin-bottom: 50px">
+    <tr>
+        <td>
+            <left>
+                <center><h1>Acknowledgements</h1></center>
+            We would like to thank Tete Xiao, Medhini Narasimhan, and Rodolfo (Rudy) Corona for helpful feedback and discussions.
+                This project has received funding from the European Research Council (ERC) under the European Unions Horizon 2020 research and innovation programme (grant ERC HOLI 819080).
+                Prof. Darrell’s group was supported in part by DoD including DARPA's XAI, and LwLL programs,  as well as BAIR's industrial alliance programs.
+                This work was completed in partial fulfillment for the Ph.D. degree of the first author.
+            </left>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
