@@ -126,24 +126,25 @@
 <br>
 <center>
     <span style="font-size:36px">Object-Region Video Transformers</span>
-    <br><br>
-
+    <br>
+    <br>
     <span style="font-size:24px">Technical Report, 2021</span>
-    <br><br><br>
+    <br>
+    <br>
     <table align=center>
         <tr>
-            <span style="font-size:24px"><a href="https://roeiherz.github.io/">Roei Herzig</a><sup>1</sup></span> &nbsp;
-            <span style="font-size:24px">Elad Ben-Avraham<sup>1</sup></span> &nbsp;
-            <span style="font-size:24px"><a href="https://karttikeya.github.io/">Karttikeya Mangalam</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="https://roeiherz.github.io/">Roei Herzig</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:20px">Elad Ben-Avraham<sup>1</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="https://karttikeya.github.io/">Karttikeya Mangalam</a><sup>2</sup></span> &nbsp;
+        </tr><br>
+        <tr>
+            <span style="font-size:20px"><a href="http://www.amirbar.net/">Amir Bar</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>3</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="https://anna-rohrbach.net/">Anna Rohrbach</a><sup>2</sup></span> &nbsp;
 <!--        </tr><br>-->
 <!--        <tr>-->
-            <span style="font-size:24px"><a href="http://www.amirbar.net/">Amir Bar</a><sup>1</sup></span> &nbsp;
-            <span style="font-size:24px"><a href="https://chechiklab.biu.ac.il/">Gal Chechik</a><sup>3</sup></span> &nbsp;
-            <span style="font-size:24px"><a href="https://anna-rohrbach.net/">Anna Rohrbach</a><sup>2</sup></span> &nbsp;
-<!--        </tr><br>-->
-<!--        <tr>-->
-            <span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
-            <span style="font-size:24px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="https://people.eecs.berkeley.edu/~trevor/">Trevor Darrell</a><sup>2</sup></span> &nbsp;
+            <span style="font-size:20px"><a href="http://www.cs.tau.ac.il/~gamir/">Amir Globerson</a><sup>1</sup></span> &nbsp;
         </tr>
     </table>
 
@@ -170,17 +171,17 @@
         <tr>
             <td align=center>
                 <center>
-                    <span style="font-size:24px"><a href="https://arxiv.org/abs/2006.15327"> [Paper]</a></span>
+                    <span style="font-size:20px"><a href="https://arxiv.org/abs/2006.15327"> [Paper]</a></span>
                 </center>
             </td>
             <td align=center>
                 <center>
-                        <span style="font-size:24px"><a href='https://github.com/roeiherz/ORViT'> [GitHub]</a></span>
+                        <span style="font-size:20px"><a href='https://github.com/roeiherz/ORViT'> [GitHub]</a></span>
                 </center>
             </td>
             <td align=center>
                 <center>
-                        <span style="font-size:24px"><a href='data/2021ORViT.txt'> [Bibtex]</a></span>
+                        <span style="font-size:20px"><a href='data/2021ORViT.txt'> [Bibtex]</a></span>
                 </center>
             </td>
         </tr>
@@ -214,19 +215,17 @@ We further model object dynamics via a separate ``Object-Dynamics Module'', whic
 We show strong improvement in performance across all tasks and datasets considered, demonstrating the value of a model that incorporates object representations into a transformer architecture.
 <br><br><br>
 <hr>
-<br>
 <table align=center>
     <center><h1 id="motivation">Motivation</h1></center>
 </table>
-
 <p>
-    Consider the simple action of ``Picking up a coffee cup'' below.
+    Consider the simple action of ''Picking up a coffee cup'' below.
     Intuitively, a human recognizing this action would identify the hand, the coffee cup and the coaster, and perceive the upward movement of the cup.
-    This highlights three important cues needed for recognizing actions:
-    What/where are the objects? How do they interact? and how do they move?
+    This highlights <b>three important cues</b> needed for recognizing actions:
+        What/where are the objects? How do they interact? and how do they move?
     Indeed, evidence from cognitive psychology also supports this structure of the action-perception system.
-    It seems intuitively clear that machine vision models should also capture this reasoning structure,
-    and indeed this has been explored in the past.
+<!--    It seems intuitively clear that machine vision models should also capture this reasoning structure,-->
+<!--    and indeed this has been explored in the past.-->
 </p>
 <center><img src="data/videos/motivation.gif" align="middle" width="300"></center>
 
@@ -237,15 +236,14 @@ We show strong improvement in performance across all tasks and datasets consider
     <center><h1 id="object-centric">Object-Centric Approach</h1></center>
 </table>
 
-Existing state-of-the-art video transformer models do not explicitly model objects.
-Recently, video transformers have been introduced as a powerful video understanding models.
+Recently, video transformers have been introduced as powerful video understanding models.
 In these models, each video frame is divided into patches, and a spatio-temporal self-attention architecture obtains a context-dependent representation for the patches.
 However, there is no explicit representation of objects in this approach, which makes it harder for such models to capture compositionality.
 The challenge in building such an architecture is that it should have components for modeling the appearance of objects, the interaction between objects, and the dynamics of the objects (irrespective of their visual appearance).
-An additional key desideratum is that video content outside the objects should not be discarded, as it contains important contextual information.
-We would like the objects to influence the representation of the scene, throughout the bottom-up process, rather than as a post-processing stage.
+We would like the objects to influence the representation of the scene throughout the bottom-up process rather than as a post-processing stage.
 Our key idea is that object regions can be introduced into transformers in a similar way to that of the regular patches, and dynamics can also be integrated into this framework in a natural way.
 We refer to our model as an ''Object-Region Video Transformer'' (or ORViT).
+
 <br><br><br>
 <center><img src="data/figures/object-centric.png" align="middle"></center>
 <br>
@@ -283,10 +281,19 @@ To model object dynamics, we introduce the <b>Object-Dynamics Module</b> that on
 <hr>
 <br>
 
-
 <table align=center width=850px>
     <center><h1>Visualizations</h1></center>
 </table>
+<table>
+    <tr>
+        <center>
+            <img src="data/figures/vis_figure0.png"/></center>
+        <p> We visualize the attention allocated to the object tokens in the ORViT block (red, green, and blue) in each frame
+            for a video describing ''moving two objects away from each other''.
+            It can be seen that each remote object affects the patch-tokens in its region, whereas the hand has a broader map.</p>
+    </tr>
+</table>
+<br><br>
 <table>
     <tr>
         <center>
