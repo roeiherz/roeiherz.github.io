@@ -270,11 +270,14 @@ This means that the ORViT block can be called repeatedly.
 <br>
 <center><img src="data/figures/architecture.png" width=789 align="middle"></center>
 <br><br>
-We use the object regions to extract descriptor vectors per region from the input tokens, which we refer to as object tokens.
+
+The goal of <b>Object-Region Attention</b> is to extract information about each object and use it to refine the patch tokens.
+This is done by using the object regions to extract descriptor vectors per region from the input tokens, which we refer to as object tokens.
 These vectors are then concatenated with the THW patch tokens and serve as the keys and values, while the queries are only the patch tokens.
 Finally, the output of the block is THW patch tokens.
 Thus, the key idea is to fuse object-centric information into spatio-temporal representations.
 Namely, inject the TO object region tokens into patch tokens THW.
+To model object dynamics, we introduce the <b>Object-Dynamics Module</b> that only considers the box coordinates.
 
 <br><br>
 <hr>
