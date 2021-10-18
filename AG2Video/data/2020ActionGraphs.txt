@@ -1,6 +1,15 @@
-@article{bar2020compositional,
-  title={Compositional video synthesis with action graphs},
-  author={Bar, Amir and Herzig, Roei and Wang, Xiaolong and Chechik, Gal and Darrell, Trevor and Globerson, Amir},
-  journal={arXiv preprint arXiv:2006.15327},
-  year={2020}
+@InProceedings{bar2021actiongraph,
+  title = 	 {Compositional Video Synthesis with Action Graphs},
+  author =       {Bar, Amir and Herzig, Roei and Wang, Xiaolong and Rohrbach, Anna and Chechik, Gal and Darrell, Trevor and Globerson, Amir},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {662--673},
+  year = 	 {2021},
+  editor = 	 {Meila, Marina and Zhang, Tong},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {18--24 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v139/bar21a/bar21a.pdf},
+  url = 	 {https://proceedings.mlr.press/v139/bar21a.html},
+  abstract = 	 {Videos of actions are complex signals containing rich compositional structure in space and time. Current video generation methods lack the ability to condition the generation on multiple coordinated and potentially simultaneous timed actions. To address this challenge, we propose to represent the actions in a graph structure called Action Graph and present the new "Action Graph To Video" synthesis task. Our generative model for this task (AG2Vid) disentangles motion and appearance features, and by incorporating a scheduling mechanism for actions facilitates a timely and coordinated video generation. We train and evaluate AG2Vid on CATER and Something-Something V2 datasets, which results in videos that have better visual quality and semantic consistency compared to baselines. Finally, our model demonstrates zero-shot abilities by synthesizing novel compositions of the learned actions.}
 }
