@@ -1,4 +1,4 @@
-@misc{herzig2021objectregion,
+@misc{herzig2021orvit,
       title={Object-Region Video Transformers},
       author={Roei Herzig and Elad Ben-Avraham and Karttikeya Mangalam and Amir Bar and Gal Chechik and Anna Rohrbach and Trevor Darrell and Amir Globerson},
       year={2021},
