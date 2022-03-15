@@ -128,7 +128,7 @@
     <span style="font-size:36px">Object-Region Video Transformers</span>
     <br>
     <br>
-    <span style="font-size:22px">Tech Report, 2021</span>
+    <span style="font-size:22px">CVPR 2022</span>
     <br>
     <br>
 <!--    <br>-->
@@ -188,30 +188,39 @@
         </tr>
     </table>
 <br><br><br>
-<center><img src="data/figures/teaser.png" align="middle"></center></center>
+<center><img src="data/figures/teaser.png" align="middle" width="400" height="500" ></center></center>
 <br><br>
-Our ORViT model introduces <i>class-agnostic</i> object-centric information into the transformer self-attention operation.
-The figure shows the standard (uniformly spaced) patch-tokens in <span style="color:Blue;">blue</span>, and object-regions corresponding to class-agnostic detections
-in <span style="color:Orange;">orange</span>. In ORViT any temporal patch-token (e.g., the patch in <b>black</b> at time T)
+Our ORViT model incorporates object information into video transformer layers.
+The figure shows the standard (uniformly spaced) transformer patch-tokens in <span style="color:Blue;">blue</span>,
+and object-regions corresponding to detections in <span style="color:Orange;">orange</span>.
+In ORViT any temporal patch-token (e.g., the patch in <b>black</b> at time T)
 attends to all patch tokens (<span style="color:Blue;">blue</span>) and region tokens (<span style="color:Orange;">orange</span>).
 This allows the new patch representation to be informed by the objects.
+Our method shows strong performance improvement on multiple video understanding tasks and datasets,
+demonstrating the value of a model that incorporates object representations into a transformer architecture.
+
 
 <br><br><br>
 <hr>
 <table align=center>
     <center><h1>Abstract</h1></center>
 </table>
-Recently, video transformers have shown great success in video understanding, exceeding CNN performance;
-yet existing video transformer models do not explicitly model objects, although objects can be essential for recognizing actions.
-In this work, we present Object-Region Video Transformers (ORViT), an <i>object-centric</i> approach that extends video transformer layers
-with a block that directly incorporates object representations.
-The key idea is to fuse object-centric representations starting from early layers and propagate them into the transformer-layers,
-thus affecting the spatio-temporal representations throughout the network.
+Recently, video transformers have shown great success in video understanding,
+exceeding CNN performance; yet existing video transformer models do not
+explicitly model objects, although objects can be essential for recognizing actions.
+In this work, we present Object-Region Video Transformers (ORViT), an
+<i>object-centric</i> approach that extends video transformer layers with a block
+that directly incorporates object representations.
+The key idea is to fuse object-centric representations starting from early layers
+and propagate them into the transformer-layers, thus affecting the spatio-temporal
+representations throughout the network.
 Our ORViT block consists of two object-level streams: appearance and dynamics.
-In the appearance stream, an ``Object-Region Attention'' module applies self-attention over the patches and <i>object regions</i>.
+In the appearance stream, an ''Object-Region Attention'' module applies self-attention over the patches and <i>object regions</i>.
 In this way, visual object regions interact with uniform patch tokens and enrich them with contextualized object information.
-We further model object dynamics via a separate ``Object-Dynamics Module'', which captures trajectory interactions, and show how to integrate the two streams.
-We evaluate our model on four tasks and five datasets: compositional and few-shot action recognition on SomethingElse, spatio-temporal action detection on AVA, and standard action recognition on Something-Something V2, Diving48 and Epic-Kitchen100.
+We further model object dynamics via a separate ''Object-Dynamics Module'', which captures trajectory interactions,
+and show how to integrate the two streams.
+We evaluate our model on four tasks and five datasets:
+compositional and few-shot action recognition on SomethingElse, spatio-temporal action detection on AVA, and standard action recognition on Something-Something V2, Diving48 and Epic-Kitchen100.
 We show strong performance improvement across all tasks and datasets considered, demonstrating the value of a model that incorporates object representations into a transformer architecture.
 <br><br><br>
 <hr>
@@ -245,7 +254,7 @@ Our key idea is that object regions can be introduced into transformers in a sim
 We refer to our model as an ''Object-Region Video Transformer'' (or ORViT).
 
 <br><br><br>
-<center><img src="data/figures/object-centric.png" align="middle"></center>
+<center><img src="data/figures/object-centric.png" align="middle" width="300" height="500"></center>
 <br>
 <hr>
 <br>
@@ -273,7 +282,7 @@ Thus, the key idea is to fuse object-centric information into spatio-temporal re
 Namely, inject the TO object region tokens into patch tokens THW.
 To model object dynamics, we introduce the <b>Object-Dynamics Module</b> that only considers the box coordinates.
 <br><br><br>
-<center><img src="data/figures/architecture.png" width=789 align="middle"></center>
+<center><img src="data/figures/architecture.png" align="middle" width="400" height="500"></center>
 <br><br>
 <hr>
 <br>
@@ -323,7 +332,7 @@ To model object dynamics, we introduce the <b>Object-Dynamics Module</b> that on
         <td>
                 <span style="font-size:14pt"> Roei Herzig, Elad Ben-Avraham, Karttikeya Mangalam, Amir Bar, Gal Chechik, Anna Rohrbach, Trevor Darrell, Amir Globerson<br>
               <i>Object-Region Video Transformers</i><br>
-            Tech report, 2021<br>
+            CVPR, 2022<br>
             Hosted on <a href="https://arxiv.org/abs/2110.06915">arXiv</a>
                 </span>
         </td>
