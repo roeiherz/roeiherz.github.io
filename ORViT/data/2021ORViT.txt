@@ -1,6 +1,8 @@
-@inproceedings{herzig2022orvit,
-  title={Object-Region Video Transformers},
-  author={Roei Herzig and Elad Ben-Avraham and Karttikeya Mangalam and Amir Bar and Gal Chechik and Anna Rohrbach and Trevor Darrell and Amir Globerson},
-  booktitle={Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2022}
+@InProceedings{Herzig2022Orvit,
+    author    = {Herzig, Roei and Ben-Avraham, Elad and Mangalam, Karttikeya and Bar, Amir and Chechik, Gal and Rohrbach, Anna and Darrell, Trevor and Globerson, Amir},
+    title     = {Object-Region Video Transformers},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {3148-3159}
 }
