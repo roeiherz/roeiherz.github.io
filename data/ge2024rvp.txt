@@ -1,0 +1,6 @@
+@InProceedings{ge2024rvp,
+    title     = {Recursive Visual Programming},
+    author = {Jiaxin Ge and Sanjay Subramanian and Baifeng Shi and Roei Herzig and Trevor Darrell},
+    booktitle = {European Conference on Computer Vision},
+    year      = {2024},
+}
