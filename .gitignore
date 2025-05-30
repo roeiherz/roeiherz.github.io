@@ -130,3 +130,5 @@ dmypy.json
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/inspectionProfiles/Project_Default.xml
+images/.DS_Store
+.DS_Store
