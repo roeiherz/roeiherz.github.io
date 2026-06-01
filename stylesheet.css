@@ -160,13 +160,13 @@ p:last-child {
 }
 
 .recruiting {
-  margin: 0.55rem 0 0;
-  padding: 0.6rem 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0.9rem;
   background: linear-gradient(90deg, rgba(180, 83, 9, 0.06), rgba(180, 83, 9, 0));
   border-left: 3px solid var(--color-highlight);
   border-radius: 0 6px 6px 0;
-  font-size: 0.94rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 .recruiting .new-badge {
