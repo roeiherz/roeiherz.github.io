@@ -394,10 +394,12 @@ section {
   background-color: var(--color-paper-hover);
 }
 
-.paper-figure img {
+.paper-figure img,
+.paper-figure video {
   width: 100%;
   border-radius: 6px;
   background-color: var(--color-divider);
+  display: block;
 }
 
 .paper-content {
@@ -662,7 +664,8 @@ section {
     padding: 1rem 0.25rem;
   }
 
-  .paper-figure img {
+  .paper-figure img,
+  .paper-figure video {
     max-width: 280px;
     margin: 0 auto;
   }
