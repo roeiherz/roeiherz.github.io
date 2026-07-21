@@ -274,6 +274,24 @@ section {
   font-size: 0.95rem;
 }
 
+.sub-section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-highlight);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.alumni-block {
+  display: none;
+}
+
+.alumni-block.expanded {
+  display: block;
+  margin-top: 0.5rem;
+}
+
 /* ─────────── Highlights ─────────── */
 .highlights-list {
   list-style: none;
