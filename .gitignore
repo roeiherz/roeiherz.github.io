@@ -132,3 +132,5 @@ dmypy.json
 /.idea/inspectionProfiles/Project_Default.xml
 images/.DS_Store
 .DS_Store
+.claude/settings.local.json
+.claude/settings.json

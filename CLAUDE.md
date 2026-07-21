@@ -8,13 +8,13 @@ Roei Herzig's personal academic website, served via GitHub Pages directly from s
 
 ## Commands
 
-There is no build/lint/test tooling. To preview locally, just open `index.html` in a browser, or serve the directory statically, e.g.:
+There is no build/lint/test tooling. To preview locally, serve the directory statically on port **8765** (Roei's convention — same port every session, browser bookmark stays valid). Run in the repo root, in the background:
 
 ```
-python3 -m http.server 8000
+python3 -m http.server 8765
 ```
 
-Changes are published by committing and pushing to `master` (GitHub Pages serves directly from it).
+Then open http://localhost:8765/. If it's already up (curl returns 200), just `open http://localhost:8765/` — no need to restart. Changes are published by committing and pushing to `master` (GitHub Pages serves directly from it).
 
 ## Architecture
 
