@@ -526,6 +526,19 @@ section {
   color: #b91c1c;
 }
 
+/* Oral: rarer than a spotlight — solid emerald so it ranks above spotlight pills
+   and stays clear of the red New/Award/Open badges and amber venue chips */
+.oral-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  background-color: #047857;
+  color: #ffffff;
+}
+
 .challenge-winner {
   font-size: 0.85rem;
   color: #b45309;
